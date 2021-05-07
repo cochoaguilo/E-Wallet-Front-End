@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/cochoaguilo/E-Wallet-Front-End/static/css/main.b1ffe5d6.chunk.css",
+    "main.js": "/cochoaguilo/E-Wallet-Front-End/static/js/main.118f0a2e.chunk.js",
+    "main.js.map": "/cochoaguilo/E-Wallet-Front-End/static/js/main.118f0a2e.chunk.js.map",
+    "runtime-main.js": "/cochoaguilo/E-Wallet-Front-End/static/js/runtime-main.0a92a45f.js",
+    "runtime-main.js.map": "/cochoaguilo/E-Wallet-Front-End/static/js/runtime-main.0a92a45f.js.map",
+    "static/js/2.03022454.chunk.js": "/cochoaguilo/E-Wallet-Front-End/static/js/2.03022454.chunk.js",
+    "static/js/2.03022454.chunk.js.map": "/cochoaguilo/E-Wallet-Front-End/static/js/2.03022454.chunk.js.map",
+    "static/js/3.029ebe32.chunk.js": "/cochoaguilo/E-Wallet-Front-End/static/js/3.029ebe32.chunk.js",
+    "static/js/3.029ebe32.chunk.js.map": "/cochoaguilo/E-Wallet-Front-End/static/js/3.029ebe32.chunk.js.map",
+    "index.html": "/cochoaguilo/E-Wallet-Front-End/index.html",
+    "static/css/main.b1ffe5d6.chunk.css.map": "/cochoaguilo/E-Wallet-Front-End/static/css/main.b1ffe5d6.chunk.css.map",
+    "static/js/2.03022454.chunk.js.LICENSE.txt": "/cochoaguilo/E-Wallet-Front-End/static/js/2.03022454.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0a92a45f.js",
+    "static/js/2.03022454.chunk.js",
+    "static/css/main.b1ffe5d6.chunk.css",
+    "static/js/main.118f0a2e.chunk.js"
+  ]
+}

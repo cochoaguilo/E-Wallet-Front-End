@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/assets/css/modal.css"],"names":[],"mappings":"AAAA,iBACI,iBAAkB,CAClB,oBAAa,CAAb,YAAa,CACb,6BAAsB,CAAtB,qBACJ","file":"main.b1ffe5d6.chunk.css","sourcesContent":[".modal-body form{\n    position: relative;\n    display: flex;\n    flex-direction: column;\n}"]}
