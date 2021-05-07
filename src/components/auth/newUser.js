@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { Link} from 'react-router-dom'
+import '../../assets/css/signin.css'
 
 
 const NewUser = () =>{
@@ -40,25 +41,29 @@ const NewUser = () =>{
         fetch.apiFetchPOST('/operations', user)
     }
     return(
-        <div className="form-usuario">
-            <div className="contenedor-form sombra-dark">
-                <h1>Crear Neva Cuenta</h1>
+        <div className="text-center">
+        <main className="form-signin">
+            
+                
                 <form
                     onSubmit ={onSubmit}        
                 >
-                    <div className="campo-form">
-                        <label htmlFor="name">Nmbre</label>
+                    <h1>Crear Neva Cuenta</h1>
+                    <div className="form-floating">
+                        
                         <input
-                            type="ex"
+                            type="text"
                             id="name"
                             name="name"
                             placeholder="Tu nombre"
                             value={name}
                             onChange={onChange}
+                            className="form-floating"
                             />
+                            <label htmlFor="name">Nmbre</label>
                     </div>
-                    <div className="campo-form">
-                        <label htmlFor="surname">Apelld</label>
+                    <div className="form-floating">
+                        
                         <input
                             type="text"
                             id="surname"
@@ -66,12 +71,14 @@ const NewUser = () =>{
                             placeholder="Tu apellido"
                             value={surname}
                             onChange={onChange}
+                            className="form-floating"
                             />
+                            <label htmlFor="surname">Apelld</label>
                     </div>
 
                 
-                    <div className="campo-form">
-                        <label htmlFor="email">Email</label>
+                    <div className="form-floating">
+                       
                         <input
                             type="email"
                             id="email"
@@ -79,10 +86,12 @@ const NewUser = () =>{
                             placeholder="Tu email"
                             value={email}
                             onChange={onChange}
+                            className="form-floating"
                             />
+                             <label htmlFor="email">Email</label>
                     </div>
-                    <div className="campo-form">
-                        <label htmlFor="password">Password</label>
+                    <div className="form-floating">
+                       
                         <input
                             type="password"
                             id="password"
@@ -90,18 +99,21 @@ const NewUser = () =>{
                             placeholder="Tu password"
                             value={password}
                             onChange={onChange}
+                            className="form-floating"
                             />
+                             <label htmlFor="password">Password</label>
                     </div>
 
-                    <div className="camp-frm">
-                        <input type="submit" className="btn btn-prmar"
+                    <div className="camp-form">
+                        <input type="submit" className="btn btn-primary"
                         value="Crear Cuenta" />
                     </div>
                 </form>
-                <Link to={'/hme'} className="enlace-cuenta">
-                    Obtener Cuenta
+                <Link to={'/E-Wallet-Front-End/'} className="enlace-cuenta">
+                    Log-in
                 </Link>
-            </div>
+           
+        </main>
         </div>
     )
 }

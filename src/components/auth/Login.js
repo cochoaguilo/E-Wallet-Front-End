@@ -1,8 +1,27 @@
-import React, {useState} from 'react';
-import { Link} from 'react-router-dom'
+import React, {useState, useEffect,useContext} from 'react';
+import { Link} from 'react-router-dom';
+import '../../assets/css/signin.css';
 
-const Login = () =>{
+import AlertaContext from '../../components/alertas/alertaContext';
+import AuthContext from '../../components/auth/context/authContext';
 
+const Login = (props) =>{
+    const alertaContext = useContext(AlertaContext);
+    const { alerta, mostrarAlerta } = alertaContext;
+
+    const authContext = useContext(AuthContext);
+    const { mensaje, autenticado, iniciarSesion } = authContext;
+
+    useEffect(() => {
+        if(autenticado) {
+            props.history.push('E-Wallet-Front-End/home');
+        }
+
+        if(mensaje) {
+            mostrarAlerta(mensaje.msg, mensaje.categoria);
+        }
+        // eslint-disable-next-line
+    }, [mensaje, autenticado, props.history]);
     //Sae para ncar sesn
     const [user, saveUser ] = useState({
         email: '',
@@ -20,47 +39,64 @@ const Login = () =>{
     }
 
     const onSubmit = e =>{
+        e.preventDefault();
 
+        // Validar que no haya campos vacios
+        if(email.trim() === '' || password.trim() === '') {
+            mostrarAlerta('Todos los campos son obligatorios', 'alerta-error');
+        }
+
+        // Pasarlo al action
+        iniciarSesion({ email, password });
     }
     return(
-        <div className="form-usuario">
-            <div className="contenedor-form sombra-dark">
-                <h1>Iniciar Sesión</h1>
+        <div className="text-center">
+        <main className="form-signin">
+            
+                
                 <form
                     onSubmit ={onSubmit}        
                 >
-                    <div className="campo-form">
-                        <label htmlFor="email">Email</label>
+                 { alerta ? ( <div className={` ${alerta.categoria}`}> {alerta.msg} </div> )  : null }
+
+                    <h1>Iniciar Sesión</h1>
+                    <div className="form-floating mb-3">
+                       
                         <input
                             type="email"
                             id="email"
                             name="email"
                             placeholder="Tu email"
+                            className ="form-control"
                             value={email}
                             onChange={onChange}
                             />
+                             <label htmlFor="email">Email</label>
                     </div>
-                    <div className="campo-form">
-                        <label htmlFor="password">Password</label>
+                    <div className="form-floating mb-3">
+                        
                         <input
                             type="password"
                             id="password"
                             name="password"
                             placeholder="Tu password"
+                            className="form-control"
                             value={password}
                             onChange={onChange}
                             />
+                            <label htmlFor="password">Password</label>
                     </div>
 
-                    <div className="camp-frm">
-                        <input type="submit" className="btn btn-prmar"
+                    <div className="camp-form">
+                        <input type="submit" className="btn btn-primary"
                         value="Iniciar Sesión" />
                     </div>
                 </form>
-                <Link to={'/new-account'} className="enlace-cuenta">
+                <Link to={'/E-Wallet-Front-End/new-account'} className="enlace-cuenta">
                     Obtener Cuenta
                 </Link>
-            </div>
+           
+        </main>
         </div>
     )
 }
