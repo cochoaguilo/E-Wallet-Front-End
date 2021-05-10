@@ -27,7 +27,7 @@ const AuthState = props => {
     const registrarUsuario = async datos => {
         try {
 
-            const respuesta = await clienteAxios.post('/api/usuarios', datos);
+            const respuesta = await clienteAxios.post('http://localhost:4700/users', datos);
             console.log(respuesta.data);
 
             dispatch({
@@ -40,7 +40,7 @@ const AuthState = props => {
         } catch (error) {
             // console.log(error.response.data.msg);
             const alerta = {
-                msg: error.response.data.msg,
+                msg: error.response.data.msj,
                 categoria: 'alerta-error'
             }
 
@@ -77,19 +77,34 @@ const AuthState = props => {
     // Cuando el usuario inicia sesión
     const iniciarSesion = async datos => {
         try {
-            const respuesta = await clienteAxios.post('/api/auth', datos);
-            
+            const respuesta = await clienteAxios.post('http://localhost:4700/users/login', datos);
+            console.log(respuesta.data);
+
+            if (respuesta.data === "usuario incorrecto") {
+                const alerta = {
+                    msg: respuesta.data.msj,
+                    categoria: 'alerta-error'
+                }
+    
+                dispatch({
+                    type: LOGIN_ERROR,
+                    payload: alerta
+                })
+
+                return
+            }
+
             dispatch({
                 type: LOGIN_EXITOSO,
                 payload: respuesta.data
             });
-
+            
             // Obtener el usuario
             //usuarioAutenticado();
         } catch (error) {
-            console.log(error.response.data.msg);
+            console.log(error);
             const alerta = {
-                msg: error.response.data.msg,
+                msg: error,
                 categoria: 'alerta-error'
             }
 

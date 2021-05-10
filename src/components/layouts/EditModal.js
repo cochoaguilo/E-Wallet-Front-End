@@ -1,12 +1,17 @@
 import React, {Component} from 'react';
 import '../../assets/css/modal.css';
-class Modal extends Component{
+class ModalEdit extends Component{
+
+    constructor(props){
+        super(props);
+
+    }
 
     render(){
         return(
             <div>
 
-  <div className="modal fade" id="myModal">
+  <div className="modal fade" id="Modal-Edit">
     <div className="modal-dialog">
       <div className="modal-content">
       
@@ -16,11 +21,12 @@ class Modal extends Component{
         </div>
         <div className="modal-body">
           <form>
-              <label htmlFor="concept">Concepto</label><input type="text"></input>
+              <label htmlFor="concept">Concepto</label>
+              <input type="text" ></input>
               <label htmlFor="amount">Monto</label><input type="number"></input>
               <label htmlFor="date">Fecha</label><input type="date"></input>
               <label htmlFor="tipo">Tipo</label>
-                <select>
+                <select className='form-control' disabled>
                     <option>Ingreso</option>
                     <option>Egreso</option>
                 </select>
@@ -39,4 +45,4 @@ class Modal extends Component{
     }
 }
 
-export default Modal;
+export default ModalEdit;

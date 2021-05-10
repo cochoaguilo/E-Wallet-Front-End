@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+const baseURL = 'http://localhost:4700';
+const token = sessionStorage.getItem('token')
 
 class Main extends Component{
     constructor(props){
@@ -8,10 +10,12 @@ class Main extends Component{
         suma: 0
       }
     }
+    
   componentDidMount() {
 
-    let token = sessionStorage.getItem('token')
-    fetch('http://localhost:4700/operations',{
+    let id = sessionStorage.getItem('id');
+    
+    fetch(baseURL+'/operations/'+id,{
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
@@ -39,7 +43,19 @@ class Main extends Component{
       })
     })
   }
-    
+    deleteOperation(id){
+      if (window.confirm('Estas seguro?')) {
+        fetch(baseURL+'/operations/'+id,{
+          method: 'DELETE',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer '+ token
+          }
+        })
+        window.location.reload();
+      }
+    }
     render(){
         return(
             <div className ='main'>
@@ -60,7 +76,21 @@ class Main extends Component{
       </tr>
     </thead>
     <tbody>
-      
+      {this.state.items.map(item=>(
+      <tr>
+        <th>{item.concept}</th>
+      <th>{item.amount}</th>
+      <th>{item.date}</th>
+      <th>{item.name}</th>
+      <th>
+        <button data-toggle="modal" data-target="#Modal-Edit"><em className="fa fa-edit"></em></button>
+        <button onClick={()=>this.deleteOperation(item.id_operation)}
+          variant="danger">
+          <em className="fa fa-trash"></em>
+          </button>
+      </th>
+      </tr>
+      ))}
     </tbody>
   </table>
 </div>

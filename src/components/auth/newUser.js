@@ -1,11 +1,28 @@
-import React, {useState} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import { Link} from 'react-router-dom'
 import '../../assets/css/signin.css'
 
+import AlertaContext from '../../components/alertas/alertaContext';
+import AuthContext from '../../components/auth/context/authContext';
 
-const NewUser = () =>{
+const NewUser = (props) =>{
 
-    //Sae para ncar sesn
+    const alertaContext = useContext(AlertaContext);
+    const { alerta, mostrarAlerta } = alertaContext;
+
+    const authContext = useContext(AuthContext);
+    const { mensaje, autenticado, registrarUsuario } = authContext;
+
+    useEffect(() => {
+        if(autenticado) {
+            props.history.push('/E-Wallet-Front-End/');
+        }
+
+        if(mensaje) {
+            mostrarAlerta(mensaje.msg, mensaje.categoria);
+        }
+        // eslint-disable-next-line
+    }, [mensaje, autenticado, props.history]);
     const [user, saveUser ] = useState({
         name:'',
         surname: '',
@@ -25,29 +42,30 @@ const NewUser = () =>{
 
     const onSubmit = e =>{
 
+        e.preventDefault()
+
         if (name.trim() === '' ||
             surname.trim() === '' ||
             email.trim() === '' ||
             password.trim() === ''
         ) {
-            alert('Faltan datos')
+            mostrarAlerta('Todos los campos son obligatorios', 'alerta-error');
             return
         }
         if (password.length < 6) {
-            alert('El password debe tener minimo 6 caracteres')
+            mostrarAlerta('Debe tener minimo 6 caracteres', 'alerta-error');
             return
         }
-
-        fetch.apiFetchPOST('/operations', user)
+        
+        registrarUsuario({user})
     }
     return(
-        <div className="text-center">
-        <main className="form-signin">
-            
+        
                 
                 <form
                     onSubmit ={onSubmit}        
                 >
+                    { alerta ? ( <div className={` ${alerta.categoria}`}> {alerta.msg} </div> )  : null }
                     <h1>Crear Neva Cuenta</h1>
                     <div className="form-floating">
                         
@@ -58,9 +76,9 @@ const NewUser = () =>{
                             placeholder="Tu nombre"
                             value={name}
                             onChange={onChange}
-                            className="form-floating"
+                            className="form-control"
                             />
-                            <label htmlFor="name">Nmbre</label>
+                            <label htmlFor="name">Nombre</label>
                     </div>
                     <div className="form-floating">
                         
@@ -71,9 +89,9 @@ const NewUser = () =>{
                             placeholder="Tu apellido"
                             value={surname}
                             onChange={onChange}
-                            className="form-floating"
+                            className="form-control"
                             />
-                            <label htmlFor="surname">Apelld</label>
+                            <label htmlFor="surname">Apellido</label>
                     </div>
 
                 
@@ -86,7 +104,7 @@ const NewUser = () =>{
                             placeholder="Tu email"
                             value={email}
                             onChange={onChange}
-                            className="form-floating"
+                            className="form-control"
                             />
                              <label htmlFor="email">Email</label>
                     </div>
@@ -99,7 +117,7 @@ const NewUser = () =>{
                             placeholder="Tu password"
                             value={password}
                             onChange={onChange}
-                            className="form-floating"
+                            className="form-control"
                             />
                              <label htmlFor="password">Password</label>
                     </div>
@@ -107,14 +125,13 @@ const NewUser = () =>{
                     <div className="camp-form">
                         <input type="submit" className="btn btn-primary"
                         value="Crear Cuenta" />
-                    </div>
-                </form>
-                <Link to={'/E-Wallet-Front-End/'} className="enlace-cuenta">
+                        <Link to={'/E-Wallet-Front-End/'} className="btn btn-secondary enlace-cuenta">
                     Log-in
                 </Link>
-           
-        </main>
-        </div>
+                    </div>
+                    
+                </form>
+                
     )
 }
 

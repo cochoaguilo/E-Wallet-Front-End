@@ -14,7 +14,7 @@ const Login = (props) =>{
 
     useEffect(() => {
         if(autenticado) {
-            props.history.push('E-Wallet-Front-End/home');
+            props.history.push('/E-Wallet-Front-End/home');
         }
 
         if(mensaje) {
@@ -44,16 +44,14 @@ const Login = (props) =>{
         // Validar que no haya campos vacios
         if(email.trim() === '' || password.trim() === '') {
             mostrarAlerta('Todos los campos son obligatorios', 'alerta-error');
+            return
         }
 
         // Pasarlo al action
-        iniciarSesion({ email, password });
+        iniciarSesion({ email, password});
     }
     return(
-        <div className="text-center">
-        <main className="form-signin">
-            
-                
+        
                 <form
                     onSubmit ={onSubmit}        
                 >
@@ -90,14 +88,14 @@ const Login = (props) =>{
                     <div className="camp-form">
                         <input type="submit" className="btn btn-primary"
                         value="Iniciar Sesión" />
-                    </div>
-                </form>
-                <Link to={'/E-Wallet-Front-End/new-account'} className="enlace-cuenta">
+                        <Link to={'/E-Wallet-Front-End/new-account'} className="btn btn-secondary enlace-cuenta">
                     Obtener Cuenta
                 </Link>
+                    </div>
+                </form>
+                
            
-        </main>
-        </div>
+        
     )
 }
 

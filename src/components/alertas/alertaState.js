@@ -13,6 +13,7 @@ const AlertaState = props => {
 
     // Funciones
     const mostrarAlerta = (msg, categoria) => {
+       
         dispatch({
             type:  MOSTRAR_ALERTA,
             payload: {
@@ -26,7 +27,7 @@ const AlertaState = props => {
             dispatch({
                 type: OCULTAR_ALERTA
             })
-        }, 50000);
+        }, 5000);
     }
 
 

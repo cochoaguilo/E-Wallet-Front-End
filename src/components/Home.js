@@ -1,4 +1,5 @@
 import React from 'react';
+import ModalEdit from './layouts/EditModal';
 import Header from './layouts/Header'
 import Main from './layouts/Main'
 import Modal from './layouts/Modal'
@@ -10,6 +11,7 @@ const Home = ()=> {
             <Header></Header>
             <Main />
             <Modal />
+            <ModalEdit />
         </div>
     )
 }
