@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import EditModal from '../layouts/EditModal';
 const baseURL = 'http://localhost:4700';
 const token = sessionStorage.getItem('token')
 
@@ -7,7 +8,7 @@ class Main extends Component{
       super(props);
       this.state ={
         items: [],
-        suma: 0
+        suma: 0,
       }
     }
     
@@ -43,8 +44,8 @@ class Main extends Component{
       })
     })
   }
-    deleteOperation(id){
-      if (window.confirm('Estas seguro?')) {
+    deleteOperation(id, concept){
+      if (window.confirm(`Estas seguro de eliminar a ${concept}?`)) {
         fetch(baseURL+'/operations/'+id,{
           method: 'DELETE',
           headers: {
@@ -57,6 +58,7 @@ class Main extends Component{
       }
     }
     render(){
+      const {amount, concept, date, name, id} =this.state
         return(
             <div className ='main'>
                 <h1>Saldo</h1>
@@ -83,11 +85,26 @@ class Main extends Component{
       <th>{item.date}</th>
       <th>{item.name}</th>
       <th>
-        <button data-toggle="modal" data-target="#Modal-Edit"><em className="fa fa-edit"></em></button>
-        <button onClick={()=>this.deleteOperation(item.id_operation)}
+        <button data-toggle="modal" data-target="#Modal-Edit"
+          onClick={()=>this.setState({
+            amount:item.amount, 
+            concept:item.concept,
+            date: item.date,
+            name: item.name,
+            id: item.id_operation
+          })}
+        ><em className="fa fa-edit"></em></button>
+        <button onClick={()=>this.deleteOperation(item.id_operation, item.concept)}
           variant="danger">
           <em className="fa fa-trash"></em>
           </button>
+          <EditModal  
+            amount={amount}
+            concept={concept}
+            date={date}
+            tipo={name}
+            id = {id}
+            />
       </th>
       </tr>
       ))}
