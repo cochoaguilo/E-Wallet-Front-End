@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/E-Wallet-Front-End/static/css/main.b1ffe5d6.chunk.css",
-    "main.js": "/E-Wallet-Front-End/static/js/main.118f0a2e.chunk.js",
-    "main.js.map": "/E-Wallet-Front-End/static/js/main.118f0a2e.chunk.js.map",
-    "runtime-main.js": "/E-Wallet-Front-End/static/js/runtime-main.d3dfb800.js",
-    "runtime-main.js.map": "/E-Wallet-Front-End/static/js/runtime-main.d3dfb800.js.map",
-    "static/js/2.03022454.chunk.js": "/E-Wallet-Front-End/static/js/2.03022454.chunk.js",
-    "static/js/2.03022454.chunk.js.map": "/E-Wallet-Front-End/static/js/2.03022454.chunk.js.map",
-    "static/js/3.029ebe32.chunk.js": "/E-Wallet-Front-End/static/js/3.029ebe32.chunk.js",
-    "static/js/3.029ebe32.chunk.js.map": "/E-Wallet-Front-End/static/js/3.029ebe32.chunk.js.map",
+    "main.css": "/E-Wallet-Front-End/static/css/main.49d2b970.chunk.css",
+    "main.js": "/E-Wallet-Front-End/static/js/main.a99c50be.chunk.js",
+    "main.js.map": "/E-Wallet-Front-End/static/js/main.a99c50be.chunk.js.map",
+    "runtime-main.js": "/E-Wallet-Front-End/static/js/runtime-main.ad8bab13.js",
+    "runtime-main.js.map": "/E-Wallet-Front-End/static/js/runtime-main.ad8bab13.js.map",
+    "static/js/2.cf397ae4.chunk.js": "/E-Wallet-Front-End/static/js/2.cf397ae4.chunk.js",
+    "static/js/2.cf397ae4.chunk.js.map": "/E-Wallet-Front-End/static/js/2.cf397ae4.chunk.js.map",
+    "static/js/3.cef6380e.chunk.js": "/E-Wallet-Front-End/static/js/3.cef6380e.chunk.js",
+    "static/js/3.cef6380e.chunk.js.map": "/E-Wallet-Front-End/static/js/3.cef6380e.chunk.js.map",
     "index.html": "/E-Wallet-Front-End/index.html",
-    "static/css/main.b1ffe5d6.chunk.css.map": "/E-Wallet-Front-End/static/css/main.b1ffe5d6.chunk.css.map",
-    "static/js/2.03022454.chunk.js.LICENSE.txt": "/E-Wallet-Front-End/static/js/2.03022454.chunk.js.LICENSE.txt"
+    "static/css/main.49d2b970.chunk.css.map": "/E-Wallet-Front-End/static/css/main.49d2b970.chunk.css.map",
+    "static/js/2.cf397ae4.chunk.js.LICENSE.txt": "/E-Wallet-Front-End/static/js/2.cf397ae4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.d3dfb800.js",
-    "static/js/2.03022454.chunk.js",
-    "static/css/main.b1ffe5d6.chunk.css",
-    "static/js/main.118f0a2e.chunk.js"
+    "static/js/runtime-main.ad8bab13.js",
+    "static/js/2.cf397ae4.chunk.js",
+    "static/css/main.49d2b970.chunk.css",
+    "static/js/main.a99c50be.chunk.js"
   ]
 }
