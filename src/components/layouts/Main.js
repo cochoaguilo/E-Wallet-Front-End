@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import EditModal from '../layouts/EditModal';
-const baseURL = 'http://localhost:4700';
+const baseURL = process.env.REACT_APP_BACKEND;
 const token = sessionStorage.getItem('token')
 
 class Main extends Component{
@@ -46,7 +46,7 @@ class Main extends Component{
   }
     deleteOperation(id, concept){
       if (window.confirm(`Estas seguro de eliminar a ${concept}?`)) {
-        fetch(baseURL+'/operations/'+id,{
+        fetch(baseURL+'operations/'+id,{
           method: 'DELETE',
           headers: {
             'Accept': 'application/json',

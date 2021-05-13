@@ -33,12 +33,12 @@ const Modal =() => {
       return
   }
   
-  const baseURL = "http://localhost:4700";
+  const baseURL = process.env.REACT_APP_BACKEND;
   const token = sessionStorage.getItem("token");
   const id = sessionStorage.getItem("id")
   console.log(JSON.stringify(data));
     fetch(
-      baseURL + "/operations/"+ id,
+      baseURL + "operations/"+ id,
       {
         method: "POST",
         headers: {

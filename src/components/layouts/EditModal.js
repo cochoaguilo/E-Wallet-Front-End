@@ -30,11 +30,11 @@ const ModalEdit = (props) => {
       return;
     }
 
-    const baseURL = "http://localhost:4700";
+    const baseURL = process.env.REACT_APP_BACKEND;
     const token = sessionStorage.getItem("token");
     const idOperation = this.props.id;
     console.log(JSON.stringify(data));
-    fetch(baseURL + "/operations/" + idOperation, {
+    fetch(baseURL + "operations/" + idOperation, {
       method: "PUT",
       headers: {
         Accept: "application/json",
