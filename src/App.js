@@ -2,7 +2,7 @@ import React from "react";
 import Login from "./components/auth/Login";
 import NewUser from "./components/auth/newUser";
 import Home from "./components/Home";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
 import AlertaState from "./components/alertas/alertaState";
 import AuthState from "./components/auth/context/authState";

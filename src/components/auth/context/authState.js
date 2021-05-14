@@ -4,7 +4,7 @@ import AuthReducer from './authReducer';
 
 import clienteAxios from 'axios';
 
-let BASE_URL = process.env.REACT_APP_BACKEND;
+
 
 import { 
     REGISTRO_EXITOSO,
@@ -15,6 +15,9 @@ import {
 } from '../../types';
 
 const AuthState = props => {
+
+    let BASE_URL = process.env.REACT_APP_BACKEND;
+
     const initialState = {
         token: localStorage.getItem('token'),
         autenticado: null,
